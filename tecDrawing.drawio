@@ -1,0 +1,15 @@
+<mxfile host="65bd71144e">
+    <diagram id="X9xqXn5yhkktdI8_-AEs" name="Page-1">
+        <mxGraphModel dx="394" dy="354" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <UserObject label="HTML,CSS and JS&lt;br&gt;&lt;br&gt;(Web App)&lt;br&gt;&lt;br&gt;Render Process&lt;br&gt;&lt;br&gt;" treeRoot="1" id="2">
+                    <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+                        <mxGeometry x="100" y="90" width="170" height="130" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
