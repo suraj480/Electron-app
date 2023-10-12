@@ -1,5 +1,9 @@
 const { trace } = require("console");
-const { app, BrowserWindow ,dialog,globalShortcut,Tray,Menu} = require("electron");
+const { app, BrowserWindow ,dialog,globalShortcut,Tray,Menu,ipcMain} = require("electron");
+ipcMain.on("msg",(event,arg)=>{
+  console.log("arg",arg)
+  event.reply("back-msg",'thank you for data')
+})
 const windowStateKeeper=require('electron-window-state')
 let win;
 console.log("i am main process");
