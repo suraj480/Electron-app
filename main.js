@@ -1,7 +1,18 @@
-const { app, BrowserWindow ,dialog,globalShortcut} = require("electron");
+const { trace } = require("console");
+const { app, BrowserWindow ,dialog,globalShortcut,Tray,Menu} = require("electron");
 const windowStateKeeper=require('electron-window-state')
 let win;
 console.log("i am main process");
+let template =[{label:'check1'},{label:"check2"},{role:'minimize'}]
+let contextMenu=Menu.buildFromTemplate(template);
+// let isMac=process.platform =='darwin'
+// const globalTemplate =[
+//  ...isMac ? {label:'Blog',submenu:[{label:'About'},{label:'Version'}]}:[],
+//   {label:'File'}, 
+//   {label:'Operation',submenu:[{role:'quit',label:'close'},{label:'Zoom'}]}
+// ]
+// let menu =Menu.buildFromTemplate(globalTemplate);
+//Menu.setApplicationMenu(menu)
 function createWindow() {
   let mainWindowState=windowStateKeeper({
     defaultHeight:50,
@@ -16,12 +27,17 @@ function createWindow() {
     // frame:false,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
     },
   });
   // const child =new BrowserWindow()
   // child.loadFile('index.html')
   // child.show()
   win.loadFile("index.html");
+  win.webContents.on("context-menu",()=>{
+    contextMenu.popup();
+  })
   win.webContents.openDevTools();
  mainWindowState.manage(win)
  globalShortcut.register("shift+k",()=>{
@@ -48,10 +64,20 @@ wc.on('new-window',()=>{
 wc.on("before-input-event",()=>{
   console.log("some key is pressed")
 })
+//tray start
+ tray = new Tray('food.png')
+// tray.setToolTip("tray for electron app")
+// tray.on('click',()=>{
+//   win.isVisible()?win.hide():win.show();
+// })
+//tray with sub menus
+//let template =[{label:"item 1"},{label:"quit"}]
+const contextMenu=Menu.buildFromTemplate(template);
+tray.setContextMenu(contextMenu)
 }
 // app.on('will-quit',(e)=>{
 //   console.log("call quit app")
-//   e.preventDefault();
+//   e.preventDefault();  
 // })
 //app.whenReady().then(createWindow);
 app.on('before-quit',()=>{

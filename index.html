@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Electron App</title>
   </head>
-  <body style="user-select: none; -webkit-app-region:drag">
+  <body style="user-select: none; -webkit-app-region: drag">
     <h1>Electron js hello world</h1>
-    <a href="child.html">go to child window</a><br>
+    <a href="child.html">go to child window</a><br />
     <a target="_blank" href="image.jpg">Open image</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <button onclick="zoomOut()">Zoom out</button>
+    <button onclick="zoomIn()">Zoom in</button>
+    
   </body>
   <script>
     console.log("i am render process");
+    const { webFrame } = require('electron');
+    function zoomOut() {
+      webFrame.setZoomFactor(webFrame.getZoomFactor() - 1);
+    }
+    function zoomIn() {
+      webFrame.setZoomFactor(webFrame.getZoomFactor() + 1);
+    }
   </script>
 </html>
