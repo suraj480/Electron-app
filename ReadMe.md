@@ -28,4 +28,5 @@ Topics of Series
 
  Steps for creating build:-
  1. npm i --dev electron-builder
- 2. 
+ 2. npm run build
+    ![elctron-app](https://github.com/suraj480/Electron-app/assets/72219318/a362092e-46a1-4784-9772-322a7293dde6)
